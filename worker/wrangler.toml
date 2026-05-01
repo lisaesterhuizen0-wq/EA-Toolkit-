@@ -1,0 +1,10 @@
+# Cloudflare Worker config — placeholder. Real values land in step 3.
+#
+# After step 3 this will look roughly like:
+#   name = "ea-toolkit-proxy"
+#   main = "src/index.js"
+#   compatibility_date = "2026-05-01"
+#   account_id = "<your-cf-account-id>"
+#
+# The Anthropic API key is NEVER stored here. It's set as a secret via:
+#   wrangler secret put ANTHROPIC_API_KEY

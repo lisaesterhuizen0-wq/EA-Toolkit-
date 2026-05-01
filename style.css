@@ -1,0 +1,81 @@
+/* EA Toolkit — placeholder styles. Full design system lands in step 2. */
+
+:root {
+  --paper: #F5F2EA;
+  --paper-warm: #EDE8DA;
+  --jade: #373C2B;
+  --jade-deep: #262a1e;
+  --ink: #1a1d14;
+  --jasper: #DAFF00;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter Tight', system-ui, -apple-system, Segoe UI, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.placeholder {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 18vh 32px 8vh;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--jade);
+  margin: 0 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--jade);
+  display: inline-block;
+}
+
+h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  color: var(--jade-deep);
+}
+
+.lede {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--jade-deep);
+  margin: 0 0 32px;
+  max-width: 52ch;
+}
+
+.meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--jade);
+  margin: 0;
+}
+
+.meta a {
+  color: var(--jade);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.meta a:hover { color: var(--jade-deep); }
