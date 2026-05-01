@@ -9,7 +9,7 @@
   // ---- Configuration ---------------------------------------------------------
   // Paste the Cloudflare Worker URL here after running `wrangler deploy`.
   // Example: "https://ea-toolkit-proxy.lisa-myburgh.workers.dev"
-  const WORKER_URL = "https://WORKER-URL-NOT-YET-CONFIGURED.workers.dev";
+  const WORKER_URL = "https://ea-toolkit-proxy.lisa-775.workers.dev";
 
   const PROMPT_TEMPLATE = `You are a senior executive assistant preparing a pre-meeting brief for an executive who has 10 minutes to skim it before a call.
 
