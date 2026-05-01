@@ -1,42 +1,68 @@
-/* EA Toolkit — placeholder styles. Full design system lands in step 2. */
+/* EA Toolkit — design system per ea-toolkit-tool1-spec.md §6
+   + portfolio-master-state.md (locked design system). */
 
 :root {
+  /* Palette */
   --paper: #F5F2EA;
   --paper-warm: #EDE8DA;
   --jade: #373C2B;
   --jade-deep: #262a1e;
   --ink: #1a1d14;
   --jasper: #DAFF00;
+  --jasper-dim: #b8d600;
+  --amber: #d4892b;
+
+  /* Derived */
+  --line: rgba(55, 60, 43, 0.18);
+  --line-soft: rgba(55, 60, 43, 0.08);
+  --muted: rgba(55, 60, 43, 0.62);
+
+  /* Surfaces */
+  --surface: #FFFFFF;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
+
+  /* Type */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
-* { box-sizing: border-box; }
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-
+html { -webkit-text-size-adjust: 100%; }
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Inter Tight', system-ui, -apple-system, Segoe UI, sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+button { font-family: inherit; }
 
-.placeholder {
-  max-width: 640px;
+/* Layout */
+.container {
+  max-width: 880px;
   margin: 0 auto;
-  padding: 18vh 32px 8vh;
+  padding: 0 32px;
 }
 
+/* Eyebrow (shared) */
 .eyebrow {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--jade);
-  margin: 0 0 28px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin: 0;
 }
-
 .eyebrow .dot {
   width: 6px;
   height: 6px;
@@ -45,37 +71,280 @@ body {
   display: inline-block;
 }
 
-h1 {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin: 0 0 24px;
+/* Header */
+.site-header {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 28px 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.repo-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.repo-link:hover {
   color: var(--jade-deep);
+  border-color: var(--jade);
 }
 
+/* Tabs */
+.tabs {
+  max-width: 880px;
+  margin: 36px auto 0;
+  padding: 0 32px;
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab:hover:not(:disabled) { color: var(--jade-deep); }
+.tab.active {
+  color: var(--jade-deep);
+  border-bottom-color: var(--jade);
+}
+.tab:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+/* Intro */
+.intro {
+  padding: 64px 0 40px;
+}
+.intro .eyebrow { margin-bottom: 20px; }
+.intro h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--jade-deep);
+  margin: 0 0 24px;
+}
+.intro h1 em {
+  font-style: italic;
+  color: var(--jade);
+}
 .lede {
   font-size: 18px;
   line-height: 1.55;
   color: var(--jade-deep);
-  margin: 0 0 32px;
-  max-width: 52ch;
-}
-
-.meta {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 12px;
-  color: var(--jade);
+  max-width: 56ch;
   margin: 0;
 }
 
-.meta a {
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+.card + .card {
+  margin-top: 24px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jade);
+}
+.helper {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+textarea:focus {
+  outline: none;
+  border-color: var(--jade);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(55, 60, 43, 0.08);
+}
+textarea::placeholder { color: var(--muted); }
+
+/* Actions */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+.btn-primary {
+  appearance: none;
+  background: var(--jade);
+  color: var(--paper);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+.btn-primary:hover { background: var(--jade-deep); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:disabled {
+  background: var(--muted);
+  cursor: wait;
+}
+.btn-primary .spinner {
+  display: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(245, 242, 234, 0.3);
+  border-top-color: var(--paper);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.btn-primary.loading .spinner { display: inline-block; }
+.btn-primary.loading .btn-label::after { content: '…'; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.privacy-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Output */
+.output-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 24px;
+}
+.output-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Brief content */
+.brief {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.brief h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--jade-deep);
+  margin: 28px 0 10px;
+}
+.brief h2:first-child { margin-top: 0; }
+.brief p {
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.brief ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+.brief li {
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+.brief li::marker {
+  color: var(--jade);
+}
+
+/* Footer */
+.site-footer {
+  max-width: 880px;
+  margin: 64px auto 0;
+  padding: 32px;
+  border-top: 1px solid var(--line-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-align: center;
+}
+.site-footer a {
   color: var(--jade);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
+.site-footer a:hover { color: var(--jade-deep); }
 
-.meta a:hover { color: var(--jade-deep); }
+/* Responsive */
+@media (max-width: 600px) {
+  .container, .site-header, .tabs, .site-footer { padding-left: 20px; padding-right: 20px; }
+  .intro { padding: 40px 0 28px; }
+  .card { padding: 22px; }
+  .tab { padding: 12px 14px; font-size: 11px; }
+}
