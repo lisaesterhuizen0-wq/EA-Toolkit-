@@ -1,10 +1,14 @@
-# Cloudflare Worker config — placeholder. Real values land in step 3.
-#
-# After step 3 this will look roughly like:
-#   name = "ea-toolkit-proxy"
-#   main = "src/index.js"
-#   compatibility_date = "2026-05-01"
-#   account_id = "<your-cf-account-id>"
-#
-# The Anthropic API key is NEVER stored here. It's set as a secret via:
+name = "ea-toolkit-proxy"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+
+# The Anthropic API key is NEVER stored here. It is set as a Wrangler secret
+# (encrypted, not visible after upload) via:
 #   wrangler secret put ANTHROPIC_API_KEY
+#
+# To deploy from this directory:
+#   wrangler login        (one time, opens a browser)
+#   wrangler deploy
+#
+# After deploy, Wrangler prints the worker's public URL — paste it into
+# WORKER_URL at the top of ../app.js and push the change.

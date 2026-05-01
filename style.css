@@ -321,6 +321,24 @@ textarea::placeholder { color: var(--muted); }
   color: var(--jade);
 }
 
+/* Brief states */
+.loading-text {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  font-style: italic;
+}
+.error-text {
+  font-size: 15px;
+  color: #8a2c1f;
+  background: #f8ece8;
+  border: 1px solid #e7c5bc;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 0;
+  line-height: 1.55;
+}
+
 /* Footer */
 .site-footer {
   max-width: 880px;
