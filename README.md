@@ -4,27 +4,18 @@ Small AI tools for executive assistants. Static frontend, Cloudflare Workers pro
 
 **Live:** https://lisaesterhuizen0-wq.github.io/ea-toolkit/
 
-## Status
-
-| # | Tool | Status |
-|---|------|--------|
-| 01 | Meeting Brief Generator | **Live** |
-| 02 | EOD Summary Generator | Coming soon |
-| 03 | Email Triage Helper | Coming soon |
-| 04 | Calendar Conflict Negotiator | Coming soon |
-
 ## Why
 
-Most executive-assistant prep work is the same shape every time: take some context, distil signal, hand the exec something useful in 10 minutes. The four tools here each take a flavour of that work and give it a tight UI plus a well-tuned prompt.
+Most executive-assistant prep work is the same shape every time: take some context, distil signal, hand the exec something useful in 10 minutes. This repo is one such tool — a pre-meeting brief generator that turns a calendar invite plus a LinkedIn profile into a five-section brief (who they are / meeting context / talking points / questions / red flags).
 
 ## What's in this repo
 
 ```
-index.html              # 4-tab toolkit page; only Tool 1 active
+index.html              # the meeting brief generator page
 style.css               # design system (cream paper / jade / jasper)
 app.js                  # vanilla JS — submit, fetch, Markdown render
 prompts/
-├── meeting-brief.md    # Tool 1's prompt template (canonical reference)
+├── meeting-brief.md    # the prompt template
 └── legacy/             # 5 prompts from the v1 React build, kept as a library
 worker/
 ├── wrangler.toml       # Cloudflare Worker config
@@ -95,14 +86,6 @@ Sign up at [console.anthropic.com](https://console.anthropic.com). Add a small a
 - Cloudflare Workers for the API proxy (free tier handles ~100k requests/day)
 - GitHub Pages for hosting (free)
 - Anthropic Claude Sonnet 4.6 via `/v1/messages`
-
-## Roadmap
-
-Tools 2–4 reuse the same design system, Worker, and deploy pipeline. Each adds one more tab to the front page.
-
-- **EOD Summary Generator** — paste a day of emails / Slack / calendar; get a tight end-of-day note for the exec
-- **Email Triage Helper** — classify and draft replies for an inbox dump
-- **Calendar Conflict Negotiator** — generate a tactful reschedule message given an attendee list and a constraint
 
 ## Built by
 
