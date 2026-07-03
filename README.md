@@ -89,4 +89,4 @@ Sign up at [console.anthropic.com](https://console.anthropic.com). Add a small a
 
 ## Built by
 
-[Lisa Myburgh](https://github.com/lisaesterhuizen0-wq) — AI Operations specialist. Part of a personal portfolio aimed at international remote AI Operations roles.
+[Lisa Myburgh](https://github.com/lisaesterhuizen0-wq), AI automation and enablement specialist. Part of a personal portfolio aimed at international remote AI automation and enablement roles.
